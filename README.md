@@ -82,7 +82,7 @@ conda activate fastp
 ./april_trim.loop.sh
 ```
 > **Notes:**
-> Follow the prompted instruction to type in the *absolute* directory
+> Follow prompted instruction to type in the *absolute* directory
 
 ## B. Sequence alignment
 ### *Package used: STAR*
