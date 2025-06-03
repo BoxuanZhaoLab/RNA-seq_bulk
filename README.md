@@ -1,12 +1,40 @@
 # RNA-seq_bulk
- **Input**: genome annotatioin(.gtf), RNA transcriptome(.fasta)
 
-**Output**: alignment(.bam)
+## Preprocessing
 
-**Package used: STAR**
+### Generating Genome Index 
+### *Package used: STAR*
+**(Required) Download genome(.fa) and annotation(.gtf) from [ncbi genome dataset](https://www.ncbi.nlm.nih.gov/datasets/genome/)**
 
-### Building genome index
-#### (Required) Download genome(.fa) and annotation(.gtf) from [ncbi genome dataset](https://www.ncbi.nlm.nih.gov/datasets/genome/)
+*Indexing allows the aligner to quickly locate potential matches.*
+
+ **Input**: genome annotatioin(.gtf), Reference genome(.fa)
+
+**Output**: index files
+
+- **--runThreadN** `<NumberOfThreads>`  
+  Number of CPU threads to use (set to available cores).
+
+- **--runMode** `genomeGenerate`  
+  Tells STAR to build genome indices.
+
+- **--genomeDir** `/path/to/genomeDir`  
+  Directory (must exist) where indices will be stored. Needs ≥100 GB free for mammalian genomes.
+
+- **--genomeFastaFiles** `/path/to/genome1.fa [/path/to/genome2.fa ...]`  
+  One or more reference FASTA files (chromosomes can be split across files).
+
+- **--sjdbGTFfile** `/path/to/annotations.gtf`  
+  (Optional) GTF containing exon/junction annotations. Improves splice‐aware mapping.
+
+- **--sjdbOverhang** `<ReadLength − 1>`  
+  Length of genomic sequence around each splice junction. Ideally set to ReadLength−1 (e.g. 99 for 100 bp reads).
+
+> **Notes:**  
+> - Create (`mkdir`) and clear `genomeDir` before running.  
+> - STAR stores indices in binary format—avoid manual editing.  
+
+Example script
 
 ```
 STAR --runThreadN 6 \
