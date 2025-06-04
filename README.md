@@ -46,18 +46,6 @@ STAR --runThreadN 6 \
 --sjdbOverhang 99
 ```
 
---runThreadN 6:
-Sets the number of threads to 6 for parallel processing.
-
---runMode genomeGenerate:
-Specifies that STAR should generate a genome index.
-
---genomeDir INDEX_DIR:
-Defines the directory where the generated genome index output will be stored. *Replace INDEX_DIR with your directory*
-
---genomeFastaFiles GENOME_DIR/genome.fa:
-Provides the path to the genome FASTA file for indexing. *Replace GENOME_DIR with your directory*
-
 ### 2. rRNA removal
 #### *Package used: ribodetector*
 
